@@ -5,7 +5,7 @@ import React from "react";
 const CategoryDetails = ({ products }) => {
   return (
     <div>
-      <h1>This is category details page</h1>
+      <h1>This is category details page!</h1>
       {products.map((product) => (
         <div key={product._id}>
           <Image src={product.image} alt="" width={500} height={500} />
