@@ -3,7 +3,7 @@ import Image from "next/image";
 import React from "react";
 
 const CategoryDetails = ({ products }) => {
-  console.log(products);
+  
   return (
     <div>
       <h1>This is category details page</h1>

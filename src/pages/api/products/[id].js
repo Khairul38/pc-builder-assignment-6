@@ -7,7 +7,7 @@ const singleProduct = async (req, res) => {
   const productsCollection = client.db("pcbbd").collection("products");
 
   const { id } = req.query;
-  console.log(id);
+  
   const category = [
     "Processor",
     "Motherboard",
