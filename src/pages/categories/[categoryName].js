@@ -3,17 +3,14 @@ import Image from "next/image";
 import React from "react";
 
 const CategoryDetails = ({ products }) => {
-  
   return (
     <div>
       <h1>This is category details page</h1>
-      {
-        products.map((product) => (
-          <div key={product._id}>
-            <Image src={product.image} alt="" width={500} height={500} />
-          </div>
-        ))
-      }
+      {products.map((product) => (
+        <div key={product._id}>
+          <Image src={product.image} alt="" width={500} height={500} />
+        </div>
+      ))}
     </div>
   );
 };
@@ -25,7 +22,7 @@ CategoryDetails.getLayout = function getLayout(page) {
 };
 
 export const getStaticPaths = async () => {
-  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/categories`);
+  const res = await fetch(`${process.env.API_URL}/api/categories`);
   const resData = await res.json();
 
   const paths = resData.map((category) => ({
@@ -37,7 +34,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }) => {
   const res = await fetch(
-    `${process.env.NEXTAUTH_URL}/api/products/${params.categoryName}`
+    `${process.env.API_URL}/api/products/${params.categoryName}`
   );
   const data = await res.json();
 
