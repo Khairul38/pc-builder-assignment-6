@@ -24,27 +24,27 @@ CategoryDetails.getLayout = function getLayout(page) {
   return <RootLayout>{page}</RootLayout>;
 };
 
-export const getStaticPaths = async () => {
-  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/categories`);
-  const resData = await res.json();
+// export const getStaticPaths = async () => {
+//   const res = await fetch(`${process.env.NEXTAUTH_URL}/api/categories`);
+//   const resData = await res.json();
 
-  const paths = resData.map((category) => ({
-    params: { categoryName: category.name },
-  }));
+//   const paths = resData.map((category) => ({
+//     params: { categoryName: category.name },
+//   }));
 
-  return { paths, fallback: false };
-};
+//   return { paths, fallback: false };
+// };
 
-export const getStaticProps = async ({ params }) => {
-  const res = await fetch(
-    `${process.env.NEXTAUTH_URL}/api/products/${params.categoryName}`
-  );
-  const data = await res.json();
+// export const getStaticProps = async ({ params }) => {
+//   const res = await fetch(
+//     `${process.env.NEXTAUTH_URL}/api/products/${params.categoryName}`
+//   );
+//   const data = await res.json();
 
-  return {
-    props: {
-      products: data,
-    },
-    // revalidate: 30,
-  };
-};
+//   return {
+//     props: {
+//       products: data,
+//     },
+//     // revalidate: 30,
+//   };
+// };
