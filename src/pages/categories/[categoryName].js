@@ -7,13 +7,13 @@ const CategoryDetails = ({ products }) => {
   return (
     <div>
       <h1>This is category details page</h1>
-      {
+      {/* {
         products.map((product) => (
           <div key={product.id}>
             <Image src={product.image} alt="" width={500} height={500} />
           </div>
         ))
-      }
+      } */}
     </div>
   );
 };
