@@ -11,6 +11,7 @@ const singleProduct = async (req, res) => {
   const category = [
     "Processor",
     "Motherboard",
+    "Graphics Card",
     "RAM",
     "Power Supply Unit",
     "Storage Device",
