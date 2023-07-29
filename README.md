@@ -1,38 +1,62 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Welcome to the PC Builder Bangladesh
 
-## Getting Started
+Here you can see the live website [Live Site](https://pc-builder-assignment-6-sooty.vercel.app/).
 
-First, run the development server:
+## or
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+<!-- HOW TO RUN -->
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Run this repository on your local machine
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Please follow the below instructions to run this repository on your local machine:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+1. Clone this entire repository
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+   ```sh
+   git clone https://github.com/Khairul38/pc-builder-assignment-6
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+2. Go to the cloned project directory
 
-## Learn More
+   ```sh
+   cd pc-builder-assignment-6
 
-To learn more about Next.js, take a look at the following resources:
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Make environment file with the following system
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   ```sh
+   # For client make .env file accordingly :
+   NEXTAUTH_SECRET=""
+   NEXTAUTH_URL=https://pc-builder-assignment-6-sooty.vercel.app
+   GITHUB_ID=""
+   GITHUB_SECRET=""
+   GOOGLE_ID=""
+   GOOGLE_SECRET=""
+   MONGO_URL=""
+   ```
 
-## Deploy on Vercel
+4. Install dependencies
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```sh
+   npm i
+   # or
+   yarn
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+5. Run client (Default Port is 3000)
+
+   ```sh
+   # development mode
+   npm run dev
+
+   # build mode
+   npm run build
+
+   # production mode
+   npm run start
+   ```
+
+<br>
+
+## Thanks
