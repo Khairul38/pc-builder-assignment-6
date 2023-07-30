@@ -1,9 +1,10 @@
 import RootLayout from "@/components/layout/RootLayout";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import Rating from "react-rating";
 
 const ProductDetails = ({ product }) => {
+  const [toggleTab, setToggleTab] = useState("Key Features");
   return (
     <div className="px-8 max-w-screen-xl mx-auto pt-10">
       <div className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-screen-xl dark:border-gray-700 dark:bg-gray-800">
@@ -105,59 +106,53 @@ const ProductDetails = ({ product }) => {
       </div>
 
       <div className="py-10">
-        <div className="w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-          <ul
-            className="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 rounded-t-lg bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800"
-            id="defaultTab"
-            data-tabs-toggle="#defaultTabContent"
-            role="tablist"
-          >
+        <div className="w-full mb- bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <ul className="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 rounded-t-lg bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800">
             <li className="mr-2">
               <button
-                id="about-tab"
-                data-tabs-target="#about"
+                onClick={() => setToggleTab("Key Features")}
                 type="button"
-                role="tab"
-                aria-controls="about"
-                aria-selected="true"
-                className="inline-block p-4 text-blue-600 rounded-tl-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-blue-500"
+                className={`${
+                  toggleTab === "Key Features"
+                    ? "text-blue-600 dark:text-blue-500 border-blue-700"
+                    : "hover:text-gray-600 dark:hover:text-gray-300 hover:border-gray-300 border-transparent"
+                } border-b-2 inline-block p-4 rounded-tl-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700`}
               >
                 Key Features
               </button>
             </li>
             <li className="mr-2">
               <button
-                id="services-tab"
-                data-tabs-target="#services"
+                onClick={() => setToggleTab("Description")}
                 type="button"
-                role="tab"
-                aria-controls="services"
-                aria-selected="false"
-                className="inline-block p-4 hover:text-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-gray-300"
+                className={`${
+                  toggleTab === "Description"
+                    ? "text-blue-600 dark:text-blue-500 border-blue-700"
+                    : "hover:text-gray-600 dark:hover:text-gray-300 hover:border-gray-300 border-transparent"
+                } border-b-2 inline-block p-4 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700`}
               >
                 Description
               </button>
             </li>
             <li className="mr-2">
               <button
-                id="statistics-tab"
-                data-tabs-target="#statistics"
+                onClick={() => setToggleTab("Reviews")}
                 type="button"
-                role="tab"
-                aria-controls="statistics"
-                aria-selected="false"
-                className="inline-block p-4 hover:text-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-gray-300"
+                className={`${
+                  toggleTab === "Reviews"
+                    ? "text-blue-600 dark:text-blue-500 border-blue-700"
+                    : "hover:text-gray-600 dark:hover:text-gray-300 hover:border-gray-300 border-transparent"
+                } border-b-2 inline-block p-4 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700`}
               >
                 Reviews
               </button>
             </li>
           </ul>
-          <div id="defaultTabContent">
+          <div>
             <div
-              className="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800"
-              id="about"
-              role="tabpanel"
-              aria-labelledby="about-tab"
+              className={`${
+                toggleTab === "Key Features" ? "" : "hidden"
+              } p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800`}
             >
               {product.keyFeatures.map((kf, i) => (
                 <div key={i} className="flex items-center space-x-2">
@@ -180,37 +175,32 @@ const ProductDetails = ({ product }) => {
               ))}
             </div>
             <div
-              className="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800"
-              id="services"
-              role="tabpanel"
-              aria-labelledby="services-tab"
+              className={`${
+                toggleTab === "Description" ? "" : "hidden"
+              } p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800`}
             >
               <p className="mb-3 font-semibold text-gray-500 dark:text-gray-400">
                 {product?.description}:
               </p>
             </div>
             <div
-              className="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800"
-              id="statistics"
-              role="tabpanel"
-              aria-labelledby="statistics-tab"
+              className={`${
+                toggleTab === "Reviews" ? "" : "hidden"
+              } p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800`}
             >
-              <ul
-                role="list"
-                className="divide-y divide-gray-200 dark:divide-gray-700"
-              >
+              <ul className="divide-y divide-gray-200 dark:divide-gray-700">
                 {product?.reviews.map((review, i) => (
                   <li key={i} className="py-3 sm:py-4">
                     <div className="flex items-center space-x-4">
                       <div className="flex-shrink-0">
                         <Image
-                          className="w-8 h-8 rounded-full"
+                          className="w-10 h-10 rounded-full"
                           src="/avatar-04.jpg"
                           alt={review?.userName}
                           priority={true}
                           quality={100}
-                          width="32"
-                          height="32"
+                          width="40"
+                          height="40"
                         />
                       </div>
                       <div className="flex-1 min-w-0">
@@ -221,9 +211,6 @@ const ProductDetails = ({ product }) => {
                           {review?.message}
                         </p>
                       </div>
-                      {/* <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                        rating
-                      </div> */}
                     </div>
                   </li>
                 ))}
