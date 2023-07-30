@@ -5,7 +5,9 @@ const RootLayout = ({ children }) => {
   return (
     <div>
       <Header />
-      <div className="mt-[72px] min-h-[80vh]">{children}</div>
+      <div className="mt-[72px] min-h-[80vh] bg-white dark:bg-gray-900">
+        {children}
+      </div>
       <Footer />
     </div>
   );
