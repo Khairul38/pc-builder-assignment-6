@@ -70,6 +70,6 @@ export const getStaticProps = async () => {
       products: filterProducts,
       categories: categoriesData,
     },
-    // revalidate: 30,
+    revalidate: 30,
   };
 };
