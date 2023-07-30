@@ -1,6 +1,5 @@
 import RootLayout from "@/components/layout/RootLayout";
 import ProductCard from "@/components/ui/ProductCard";
-import React from "react";
 
 const Products = ({ products }) => {
   return (
