@@ -10,7 +10,7 @@ const ProductCard = ({ product }) => {
   const { pcBuilderData, setPcBuilderData } = useGlobalContext();
 
   return (
-    <div>
+    <div className="mx-auto">
       <div className="max-w-sm bg-white border border-blue-200 rounded-lg dark:bg-gray-800 dark:border-blue-700 shadow-md shadow-blue-200 hover:shadow-blue-200 dark:shadow-blue-500 dark:hover:shadow-blue-500 hover:shadow-2xl transition-all overflow-hidden cursor-pointer">
         <div
           onClick={() => router.push(`/products/${product?._id}`)}
@@ -95,7 +95,7 @@ const ProductCard = ({ product }) => {
                   ...pcBuilderData,
                   [GetCamelCase(product.category)]: product,
                 });
-                router.push("/pc-builder", {}, { scroll: false });
+                router.push("/pc-builder", "/pc-builder", { scroll: false });
               }}
               type="button"
               className="w-full py-2.5 px-5 mb- text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"

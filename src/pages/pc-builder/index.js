@@ -26,14 +26,14 @@ const PcBuilder = ({ categories }) => {
 
   return (
     <div className="flex justify-center align-middle items-center min-h-[80vh] px-8 py-12 max-w-screen-2xl mx-auto">
-      <div className="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+      <div className="w-full p-4 bg-white border border-gray-200 rounded-lg shadow md:p-8 dark:bg-gray-800 dark:border-gray-700">
         <div className="flex items-center justify-between mb-4">
           <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white">
             Build Your Own Computer
           </h5>
           <div>
             {Object.keys(pcBuilderData).length > 0 && (
-              <div className="inline-flex text-sm font-medium bg-blue-100 text-blue-600 dark:bg-gray-600 dark:text-gray-300 rounded-lg text-center px-4 py-2">
+              <div className="sm:inline-flex mb-2 sm:mb-0 text-sm font-medium bg-blue-100 text-blue-600 dark:bg-gray-600 dark:text-gray-300 rounded-lg text-center px-4 py-2">
                 {Object.keys(pcBuilderData).length} Items ${totalPrice}
               </div>
             )}

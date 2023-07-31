@@ -2,7 +2,23 @@
 
 Here you can see the live website [Live Site](https://pc-builder-assignment-6-sooty.vercel.app/).
 
-## or
+##
+
+This is the documentation for the PC Builder tool component of the PC Builder Bangladesh. This PC Builder tool helps users to select PC components and build their own PC.
+
+## Functional Requirements
+
+### User
+
+- User can login with Google and Github.
+
+- User can log out.
+
+- User can visit home page, category wise product page, products page, product details page without login.
+
+- There is a protected route/page called pc builder page, User must login to visit this page.
+
+- In pc builder page user can build their own pc by selecting pc components.
 
 <!-- HOW TO RUN -->
 
@@ -26,13 +42,21 @@ Please follow the below instructions to run this repository on your local machin
 3. Make environment file with the following system
 
    ```sh
-   # For client make .env file accordingly :
+   # For client make .env.local file accordingly :
    NEXTAUTH_SECRET=""
+
    NEXTAUTH_URL=https://pc-builder-assignment-6-sooty.vercel.app
+
+   NEXT_PUBLIC_BASE_URL=https://pc-builder-assignment-6-sooty.vercel.app
+
    GITHUB_ID=""
+
    GITHUB_SECRET=""
+
    GOOGLE_ID=""
+
    GOOGLE_SECRET=""
+
    MONGO_URL=""
    ```
 
@@ -40,8 +64,6 @@ Please follow the below instructions to run this repository on your local machin
 
    ```sh
    npm i
-   # or
-   yarn
    ```
 
 5. Run client (Default Port is 3000)
