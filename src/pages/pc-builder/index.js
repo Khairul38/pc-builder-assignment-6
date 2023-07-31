@@ -93,15 +93,15 @@ const PcBuilder = ({ categories }) => {
                     <div className="flex items-center space-x-4 mt-2">
                       <div className="flex-shrink-0">
                         <Image
-                          className="w-16 h-16 rounded-lg"
+                          className="w-[70px] h-[70px] rounded-lg"
                           src={
                             pcBuilderData[GetCamelCase(category.name)]?.image
                           }
                           alt={category.name}
                           priority
                           quality={100}
-                          width={56}
-                          height={56}
+                          width={70}
+                          height={70}
                         />
                       </div>
                       <div className="flex-1 min-w-0">
