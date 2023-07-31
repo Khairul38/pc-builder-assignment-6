@@ -12,10 +12,7 @@ const CategoryDetails = ({ products }) => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-14 px-8 max-w-screen-2xl mx-auto">
         {products.map((product) => (
-          <ProductCard
-            key={product._id}
-            product={product}
-          />
+          <ProductCard key={product._id} product={product} />
         ))}
       </div>
     </div>
@@ -29,7 +26,7 @@ CategoryDetails.getLayout = function getLayout(page) {
 };
 
 export const getStaticPaths = async () => {
-  const res = await fetch(`${process.env.API_URL}/api/categories`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/categories`);
   const resData = await res.json();
 
   const paths = resData.map((category) => ({
@@ -41,7 +38,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }) => {
   const res = await fetch(
-    `${process.env.API_URL}/api/products/${params.categoryName}`
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/products/${params.categoryName}`
   );
   const data = await res.json();
 

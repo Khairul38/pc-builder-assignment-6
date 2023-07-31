@@ -53,8 +53,12 @@ Home.getLayout = function getLayout(page) {
 };
 
 export const getStaticProps = async () => {
-  const products = await fetch(`${process.env.API_URL}/api/products`);
-  const categories = await fetch(`${process.env.API_URL}/api/categories`);
+  const products = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/products`
+  );
+  const categories = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories`
+  );
 
   const productsData = await products.json();
   const filterProducts = productsData

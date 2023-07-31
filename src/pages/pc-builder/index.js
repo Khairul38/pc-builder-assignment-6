@@ -159,7 +159,9 @@ PcBuilder.getLayout = function getLayout(page) {
 };
 
 export const getServerSideProps = async () => {
-  const categories = await fetch(`${process.env.API_URL}/api/categories`);
+  const categories = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories`
+  );
   const categoriesData = await categories.json();
 
   const filterCategories = categoriesData.slice(0, 7);
