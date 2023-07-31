@@ -4,21 +4,21 @@ Here you can see the live website [Live Site](https://pc-builder-assignment-6-so
 
 ##
 
-This is the documentation for the PC Builder tool component of the PC Builder Bangladesh. This PC Builder tool helps users to select PC components and build their own PC.
+This is the documentation for the PC Builder tool component of the PC Builder Bangladesh. This PC Builder tool helps users to select PC components and build their own PC. It is made using Next.js, Next Auth, Next API, Tailwind, Flowbite, Mongodb
 
 ## Functional Requirements
 
 ### User
 
-- User can login with Google and Github.
+- User can log in with Google and Github.
 
 - User can log out.
 
-- User can visit home page, category wise product page, products page, product details page without login.
+- Users can visit the home page, category-wise product page, products page, and product details page without login.
 
-- There is a protected route/page called pc builder page, User must login to visit this page.
+- There is a protected route/page called pc builder page, User must log in to visit this page.
 
-- In pc builder page user can build their own pc by selecting pc components.
+- In pc builder page users can build their own pc by selecting pc components.
 
 <!-- HOW TO RUN -->
 
