@@ -6,8 +6,8 @@ import Rating from "react-rating";
 const ProductDetails = ({ product }) => {
   const [toggleTab, setToggleTab] = useState("Key Features");
   return (
-    <div className="px-8 max-w-screen-xl mx-auto pt-10">
-      <div className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-screen-xl dark:border-gray-700 dark:bg-gray-800 p-5 gap-3">
+    <div className="px-8 max-w-screen-2xl mx-auto pt-10">
+      <div className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-screen-2xl dark:border-gray-700 dark:bg-gray-800 p-5 gap-3">
         {/* <img
           className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
           src={product?.image}

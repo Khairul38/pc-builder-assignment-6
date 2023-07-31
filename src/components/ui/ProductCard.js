@@ -1,42 +1,51 @@
+import useGlobalContext from "@/hooks/useGlobalContext";
+import GetCamelCase from "@/utils/GetCamelCase";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import Rating from "react-rating";
 
 const ProductCard = ({ product }) => {
+  const router = useRouter();
+  const { pcBuilderData, setPcBuilderData } = useGlobalContext();
+
   return (
     <div>
-      <Link href={`/products/${product?._id}`}>
-        <div className="max-w-sm bg-white border border-blue-200 rounded-lg dark:bg-gray-800 dark:border-blue-700 shadow-md shadow-blue-200 hover:shadow-blue-200 dark:shadow-blue-500 dark:hover:shadow-blue-500 hover:shadow-2xl transition-all overflow-hidden">
-          <div className="relative">
-            <Image
-              className="rounded-t-lg w-full p-4"
-              src={product?.image}
-              alt={product?.name}
-              priority={true}
-              quality={100}
-              width="200"
-              height="200"
-            />
-            <div className="absolute top-0 right-0">
-              <div className="text-xs font-medium text-slate-100  bg-blue-600 bg-opacity-90 rounded-bl-xl text-center px-2 py-1">
-                <span>{product?.category}</span>
-              </div>
-            </div>
-            <div className="absolute bottom-0 left-0">
-              <div
-                className={`text-xs font-medium text-slate-100 ${
-                  product?.status === "Out of Stock"
-                    ? "bg-red-600"
-                    : "bg-blue-600"
-                } bg-opacity-90 rounded-tr-xl text-center px-2 py-1`}
-              >
-                <span>{product?.status}</span>
-              </div>
+      <div className="max-w-sm bg-white border border-blue-200 rounded-lg dark:bg-gray-800 dark:border-blue-700 shadow-md shadow-blue-200 hover:shadow-blue-200 dark:shadow-blue-500 dark:hover:shadow-blue-500 hover:shadow-2xl transition-all overflow-hidden cursor-pointer">
+        <div
+          onClick={() => router.push(`/products/${product?._id}`)}
+          className="relative"
+        >
+          <Image
+            className="rounded-t-lg w-full p-4"
+            src={product?.image}
+            alt={product?.name}
+            priority={true}
+            quality={100}
+            width="200"
+            height="200"
+          />
+          <div className="absolute top-0 right-0">
+            <div className="text-xs font-medium text-slate-100  bg-blue-600 bg-opacity-90 rounded-bl-xl text-center px-2 py-1">
+              <span>{product?.category}</span>
             </div>
           </div>
+          <div className="absolute bottom-0 left-0">
+            <div
+              className={`text-xs font-medium text-slate-100 ${
+                product?.status === "Out of Stock"
+                  ? "bg-red-600"
+                  : "bg-blue-600"
+              } bg-opacity-90 rounded-tr-xl text-center px-2 py-1`}
+            >
+              <span>{product?.status}</span>
+            </div>
+          </div>
+        </div>
 
-          <div className="p-5 space-y-5">
-            <h5 className="mb-2 text-xl font-bold text-gray-900 dark:text-gray-400 line-clamp-2">
+        <div className="p-5 space-y-5">
+          <Link href={`/products/${product?._id}`}>
+            <h5 className="mb-3 text-xl font-bold text-gray-900 dark:text-gray-400 line-clamp-2">
               {product?.name}
             </h5>
 
@@ -78,9 +87,24 @@ const ProductCard = ({ product }) => {
                 </div>
               </div>
             </div>
-          </div>
+          </Link>
+          {router?.query?.referer && (
+            <button
+              onClick={() => {
+                setPcBuilderData({
+                  ...pcBuilderData,
+                  [GetCamelCase(product.category)]: product,
+                });
+                router.push("/pc-builder");
+              }}
+              type="button"
+              className="w-full py-2.5 px-5 mb- text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+            >
+              Add To Builder
+            </button>
+          )}
         </div>
-      </Link>
+      </div>
     </div>
   );
 };

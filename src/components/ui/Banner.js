@@ -3,7 +3,7 @@ import Image from "next/image";
 const Banner = () => {
   return (
     <div className="bg-[#0092FF] bg-gradient-to-r from-[#1C64F2] via-[#0092FF] to-[#1724C9] h-[600px] mb-10">
-      <div className="flex justify-between items-center px-8 max-w-screen-xl h-full mx-auto gap-2">
+      <div className="flex justify-between items-center px-8 max-w-screen-2xl h-full mx-auto gap-2">
         <div className="space-y-3">
           <p className="text-5xl font-bold text-white">WELCOME TO</p>
           <div className="flex flex-wrap gap-3">

@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 
 const Login = () => {
   const router = useRouter();
+
   return (
     <div className="flex justify-center align-middle items-center h-[80vh] px-8">
       <div className="p-5 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-20 dark:bg-gray-800 dark:border-gray-700">
