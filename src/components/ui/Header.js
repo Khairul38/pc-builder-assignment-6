@@ -128,6 +128,7 @@ const Header = () => {
                 id="dropdownNavbarLink"
                 data-dropdown-toggle="dropdownNavbar"
                 className={`flex items-center justify-between w-full py-2 pl-3 pr-4 md:bg-transparent rounded md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 ${
+                  !router?.query?.referer &&
                   router.asPath.includes("/categories")
                     ? "bg-blue-700 text-white md:text-blue-700 md:dark:text-blue-500"
                     : "text-gray-900 hover:bg-gray-200 dark:hover:bg-gray-700 "
@@ -164,7 +165,8 @@ const Header = () => {
                       <Link
                         href={`/categories/${c}`}
                         className={`block px-4 py-2  ${
-                          router.query.categoryName === c
+                          !router?.query?.referer &&
+                          router?.query?.categoryName === c
                             ? "bg-blue-700 text-white"
                             : "hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
                         }`}
